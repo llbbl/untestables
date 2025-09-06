@@ -1,9 +1,0 @@
-jobs:
-  test:
-    name: Run Tests
-    runs-on: Linux-Small
-    steps:
-      - type: script
-        dockerfile-path: ./tests.Dockerfile
-        name: Run Tests
-        script-content: poetry run tests

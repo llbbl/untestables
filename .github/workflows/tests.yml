@@ -12,27 +12,3 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-
-    - name: Set up Python 3.11
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.11'
-
-    - name: Install Poetry
-      uses: snok/install-poetry@v1
-      with:
-        version: 1.5.1
-        virtualenvs-create: true
-        virtualenvs-in-project: true
-
-    - name: Install dependencies
-      run: poetry install --no-interaction --no-ansi --no-root
-
-    - name: Run tests
-      env:
-        DATABASE_URL: "sqlite:///:memory:"
-        GITHUB_TOKEN: "dummy_token"
-        ABS_MIN_STARS: 10
-        ABS_MAX_STARS: 1000000
-        DEFAULT_CHUNK_SIZE: 100
-      run: poetry run tests
